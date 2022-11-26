@@ -1,0 +1,191 @@
+{
+	"compiler": {
+		"version": "0.5.0+commit.1d4f565a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "deleteTask",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "toggleTask",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_description",
+						"type": "string"
+					}
+				],
+				"name": "addTask",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tasks",
+				"outputs": [
+					{
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"name": "completed",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "taskCount",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"name": "completed",
+						"type": "bool"
+					}
+				],
+				"name": "TaskCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"name": "completed",
+						"type": "bool"
+					}
+				],
+				"name": "TaskCompleted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "TaskDeleted",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts\\Todolist.sol": "TodoList"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts\\Todolist.sol": {
+			"keccak256": "0xb2f0d9ba6d36879b80d92aa67316cc1c64899cd6cab6d6aff2f445b97c92b14d",
+			"urls": [
+				"bzzr://51e1ff4561a37dcfdaa5070547d69421cf27f3013d1ecdd2fd7224ed5d00359d"
+			]
+		}
+	},
+	"version": 1
+}
