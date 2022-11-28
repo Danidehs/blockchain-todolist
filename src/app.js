@@ -61,7 +61,7 @@ App = {
 
   loadContract: async () => {
 
-    const todoList = await $.getJSON('TodoList.json')
+    const todoList = await $.getJSON('build/contracts/TodoList.json')
     App.contracts.TodoList = TruffleContract(todoList)
     //App.contracts.TodoList.setProvider(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
     App.contracts.TodoList.setProvider(new Web3.providers.HttpProvider("https://goerli.infura.io/v3/a674bf58761f459bb2c26f295b6f1a00"));
@@ -146,8 +146,6 @@ App = {
       const taskId = event.target.idTask
       //console.log(taskId)
 
-      //var privKey = '41e0474295dda285fd51856dc83fa357a9e6745ab397d009f9c6311bbbe3c185'
-      //var wallet = new ethers.Wallet(privKey);
       // const resultToggle = await wallet.signTransaction({
       //   to: '0xca097dbac199cb894bfedeb668275c441f99fbcd',
       //   from: App.account[0]
