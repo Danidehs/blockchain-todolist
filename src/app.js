@@ -1,5 +1,5 @@
 const AppContract = "0xCA097DBAC199Cb894bfEdeb668275C441f99FBcd";
-const todoInteract = new web3.eth.Contract(App.contracts.TodoList.abi,AppContract);
+
 App = {
   contracts: {},
   loading: false,
@@ -132,13 +132,19 @@ App = {
     App.setLoading(true);
     const description = $("#newTask").val();
     console.log(description);
-
+    const owner = await App.todoList.owner()
+    const todoInteract = new web3.eth.Contract(App.contracts.TodoList.abi,AppContract);
     try {
       await todoInteract.methods
         .addTask(description)
         .send({ from: App.account[0] });
     } catch (e) {
-      console.log(e);
+      if (owner != App.account) {
+        alert('You can`t interact with this contract. You are not the owner!')
+      } else {
+        alert(e.message)
+      }
+      
     }
 
     window.location.reload();
@@ -148,35 +154,50 @@ App = {
     App.setLoading(true);
     const taskId = event.target.idTask;
     //console.log(taskId)
-
+    const owner = await App.todoList.owner()
+    const todoInteract = new web3.eth.Contract(App.contracts.TodoList.abi,AppContract);
     try {
       await todoInteract.methods
         .toggleTask(taskId)
         .send({ from: App.account[0] });
     } catch (e) {
-      console.log(e);
+      if (owner != App.account) {
+        alert('You can`t interact with this contract. You are not the owner!')
+      } else {
+        alert(e.message)
+      }
     }
 
-    //window.location.reload()
+    window.location.reload()
   },
 
   deleteTask: async () => {
     App.setLoading(true);
-    const idTask = await event.target.parentNode.parentNode.getAttribute(
-      "idTask"
-    );
+    const idTask = await event.target.parentNode.parentNode.getAttribute("idTask");
     //console.log(idTask)
-
+    const owner = await App.todoList.owner()
+    const todoInteract = new web3.eth.Contract(App.contracts.TodoList.abi,AppContract);
     try {
       await todoInteract.methods
         .deleteTask(idTask)
         .send({ from: App.account[0] });
     } catch (e) {
-      console.log(e);
+      if (owner != App.account) {
+        alert('You can`t interact with this contract. You are not the owner!')
+      } else {
+        alert(e.message)
+      }
     }
 
     window.location.reload();
   },
+
+  // contractVariables: async () => {
+    
+  //   const owner = await App.todoList.owner()
+  //   const todoInteract = new web3.eth.Contract(App.contracts.TodoList.abi, AppContract);
+  //   return owner
+  // },
 
   setLoading: (boolean) => {
     App.loading = boolean;
